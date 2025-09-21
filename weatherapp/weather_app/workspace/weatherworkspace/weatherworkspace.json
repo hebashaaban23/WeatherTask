@@ -1,0 +1,46 @@
+{
+ "app": "weatherapp",
+ "charts": [],
+ "content": "[{\"id\":\"t0tr2vHqCb\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Welcome in Our App</span>\",\"col\":12}},{\"id\":\"2LiWNNQUYL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Weather Settings\",\"col\":3}},{\"id\":\"KOkztMVWG5\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Weather Data\",\"col\":4}}]",
+ "creation": "2025-09-21 15:13:53.864879",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "color-energy-points",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "WeatherWorkspace",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-09-21 15:21:34.426393",
+ "modified_by": "Administrator",
+ "module": "weather app",
+ "name": "WeatherWorkspace",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "Weather",
+   "label": "Weather Data",
+   "quick_list_filter": "[]"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 23.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Weather Settings",
+   "link_to": "Weather Settings",
+   "type": "DocType"
+  }
+ ],
+ "title": "WeatherWorkspace",
+ "type": "Workspace"
+}

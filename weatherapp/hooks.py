@@ -16,7 +16,7 @@ app_license = "gpl-3.0"
 #app_include_js = "/assets/weatherapp/js/global_weather_bar.js"
 app_include_js = "/assets/weatherapp/public/js/weather_widget.js"
 
-app_include_css = "/assets/weatherapp/css/weather_widget.css"
+app_include_css = "/assets/weatherapp/public/css/weather_widget.css"
 after_install = "weatherapp.install.after_install"
 
 scheduler_events = {
