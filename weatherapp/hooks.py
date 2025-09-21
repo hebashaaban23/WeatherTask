@@ -27,10 +27,6 @@ scheduler_events = {
 
 #after_install = "weatherapp.install.after_install"
 
-fixtures = [
-    {"doctype": "DocType", "filters": [["name", "in", ["Weather"]]]}
-]
-
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page

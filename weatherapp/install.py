@@ -1,10 +1,10 @@
 import frappe
 
 def after_install():
-    if not frappe.db.exists("Workspace", "Weather"):
+    if not frappe.db.exists("Workspace", "WeatherWorkspace"):
         ws = frappe.new_doc("Workspace")
-        ws.title = "Weather"
-        ws.label = "Weather"
+        ws.title = "WeatherWorkspace"
+        ws.label = "WeatherWorkspace"
         ws.public = 1
         ws.append("links", {
             "label": "Weather List",
