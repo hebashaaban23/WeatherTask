@@ -1,8 +1,8 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "hash",
- "creation": "2025-09-21 14:02:31.751887",
+ "autoname": "field:city",
+ "creation": "2025-09-21 14:21:55.307086",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
@@ -47,11 +47,11 @@
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-21 14:02:31.751887",
+ "modified": "2025-09-21 14:54:45.856530",
  "modified_by": "Administrator",
  "module": "weather app",
  "name": "Weather",
- "naming_rule": "Random",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {
@@ -70,5 +70,6 @@
  "row_format": "Dynamic",
  "sort_field": "modified",
  "sort_order": "DESC",
- "states": []
+ "states": [],
+ "title_field": "city"
 }

@@ -1,7 +1,7 @@
 {
  "app": "weatherapp",
  "charts": [],
- "content": "[{\"id\":\"dbyNlEp4PT\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Welcome to our Weather app</span>\",\"col\":12}},{\"id\":\"7PlOJGFCbd\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Weather Settings\",\"col\":3}}]",
+ "content": "[{\"id\":\"dbyNlEp4PT\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Welcome to our Weather app</span>\",\"col\":12}},{\"id\":\"7PlOJGFCbd\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Weather Settings\",\"col\":3}},{\"id\":\"u4GNsfjr0L\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"weather List\",\"col\":4}},{\"id\":\"1FmRE7mFB1\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"weather\",\"col\":3}}]",
  "creation": "2025-09-21 12:21:04.951850",
  "custom_blocks": [],
  "docstatus": 0,
@@ -15,7 +15,7 @@
  "label": "Weather",
  "link_type": "DocType",
  "links": [],
- "modified": "2025-09-21 13:58:58.712899",
+ "modified": "2025-09-21 14:54:19.125116",
  "modified_by": "Administrator",
  "module": "weather app",
  "name": "Weather",
@@ -23,10 +23,24 @@
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "document_type": "Weather",
+   "label": "weather List",
+   "quick_list_filter": "[]"
+  }
+ ],
  "roles": [],
  "sequence_id": 23.0,
  "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "weather",
+   "link_to": "Weather",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
   {
    "color": "Grey",
    "doc_view": "List",
