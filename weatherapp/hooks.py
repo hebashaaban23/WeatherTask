@@ -8,6 +8,21 @@ app_license = "gpl-3.0"
 # Apps
 # ------------------
 
+
+
+#app_include_js = "/assets/weatherapp/js/global_weather_bar.js"
+#app_include_js = ["weatherapp.bundle.js"]
+#app_include_css = "/assets/weatherapp/css/weathercss.css"
+#app_include_js = "/assets/weatherapp/js/global_weather_bar.js"
+app_include_js = ["weatherapp.bundle.js"]
+scheduler_events = {
+    "cron": {
+        "*/5 * * * *": ["weatherapp.tasks.sync_weather"]
+    }
+}
+
+after_install = "weatherapp.weatherapp.install.after_install"
+
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
@@ -25,8 +40,8 @@ app_license = "gpl-3.0"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/weatherapp/css/weatherapp.css"
-# app_include_js = "/assets/weatherapp/js/weatherapp.js"
+#app_include_css = "/assets/weatherapp/css/weathercss.css"
+#app_include_js = "/assets/weatherapp/js/global_weather_bar.js"
 
 # include js, css files in header of web template
 # web_include_css = "/assets/weatherapp/css/weatherapp.css"

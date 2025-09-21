@@ -1,0 +1,43 @@
+{
+ "app": "weatherapp",
+ "charts": [],
+ "content": "[{\"id\":\"fag7wSj9Ki\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Welcome in our Weather App</span>\",\"col\":12}},{\"id\":\"bfAMsDwRWc\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Temperature\",\"col\":4}},{\"id\":\"5t7RFrQaUI\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Humidity\",\"col\":4}}]",
+ "creation": "2025-09-19 13:45:14.450453",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "heart-active",
+ "idx": 0,
+ "indicator_color": "green",
+ "is_hidden": 0,
+ "label": "Weather",
+ "link_type": "DocType",
+ "links": [],
+ "modified": "2025-09-21 03:04:59.447749",
+ "modified_by": "Administrator",
+ "module": "weather app",
+ "name": "Weather",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [
+  {
+   "document_type": "Weather",
+   "label": "Temperature",
+   "quick_list_filter": "[[\"Weather\",\"temperature\",\"<\",100,false]]"
+  },
+  {
+   "document_type": "Weather",
+   "label": "Humidity",
+   "quick_list_filter": "[[\"Weather\",\"humidity\",\"<\",100,false]]"
+  }
+ ],
+ "roles": [],
+ "sequence_id": 23.0,
+ "shortcuts": [],
+ "title": "Weather",
+ "type": "Workspace"
+}
