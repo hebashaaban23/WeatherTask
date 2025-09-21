@@ -11,7 +11,7 @@
  "fields": [
   {
    "fieldname": "api_key",
-   "fieldtype": "Password",
+   "fieldtype": "Data",
    "label": "API Key"
   },
   {
@@ -27,7 +27,7 @@
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2025-09-19 13:52:30.852376",
+ "modified": "2025-09-21 13:36:05.345128",
  "modified_by": "Administrator",
  "module": "weather app",
  "name": "Weather Settings",

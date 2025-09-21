@@ -1,11 +1,13 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "field:city",
- "creation": "2025-09-19 13:37:31.643164",
+ "autoname": "hash",
+ "creation": "2025-09-21 14:02:31.751887",
  "doctype": "DocType",
+ "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
+  "section_break_jtpe",
   "city",
   "temperature",
   "humidity",
@@ -13,37 +15,43 @@
  ],
  "fields": [
   {
+   "fieldname": "section_break_jtpe",
+   "fieldtype": "Section Break"
+  },
+  {
    "fieldname": "city",
    "fieldtype": "Data",
-   "in_list_view": 1,
+   "in_standard_filter": 1,
    "label": "City",
-   "reqd": 1,
    "unique": 1
   },
   {
    "fieldname": "temperature",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Temperature"
   },
   {
    "fieldname": "humidity",
    "fieldtype": "Float",
+   "in_list_view": 1,
    "label": "Humidity"
   },
   {
    "fieldname": "last_updated_on",
    "fieldtype": "Datetime",
+   "in_list_view": 1,
    "label": "Last Updated On"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-09-19 13:42:39.206929",
+ "modified": "2025-09-21 14:02:31.751887",
  "modified_by": "Administrator",
  "module": "weather app",
  "name": "Weather",
- "naming_rule": "By fieldname",
+ "naming_rule": "Random",
  "owner": "Administrator",
  "permissions": [
   {
@@ -60,8 +68,7 @@
   }
  ],
  "row_format": "Dynamic",
- "sort_field": "creation",
+ "sort_field": "modified",
  "sort_order": "DESC",
- "states": [],
- "title_field": "city"
+ "states": []
 }

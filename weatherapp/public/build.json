@@ -1,5 +1,0 @@
-{
-  "weatherapp.bundle.js": [
-    "weatherapp/public/js/global_weather_bar.js"
-  ]
-}
