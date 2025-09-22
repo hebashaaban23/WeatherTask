@@ -1,11 +1,13 @@
 import frappe
-from .api import _get_settings, _fetch_weather, _upsert_weather
+from .api import _get_settings, fetch_weather
 
-def sync_weather():
+def update_default_city_weather():
+    settings = _get_settings()
+    city = (settings.city or "Riyadh").strip()
+    doc = frappe.get_doc("Weather", city) if frappe.db.exists("Weather", city) else frappe.get_doc({"doctype": "Weather", "city": city}).insert(ignore_permissions=True)
     try:
-        api_key, city = _get_settings()
-        data = _fetch_weather(api_key, city)
-        _upsert_weather(data)
-        frappe.logger().info(f"[weatherapp] Updated {city}: {data}")
+        reading = fetch_weather(city, settings.api_key)
+        doc.update_reading(reading["temperature"], reading["humidity"])
+        frappe.logger().info(f"[weatherapp] Updated {city}: {reading}")
     except Exception as e:
-        frappe.logger().error(f"[weatherapp] sync_weather failed: {e}")
+        frappe.logger().warning(f"[weatherapp] Failed update {city}: {e}")

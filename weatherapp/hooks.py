@@ -10,21 +10,26 @@ app_license = "gpl-3.0"
 
 
 
-#app_include_js = "/assets/weatherapp/js/global_weather_bar.js"
-#app_include_js = ["weatherapp.bundle.js"]
-#app_include_css = "/assets/weatherapp/css/weathercss.css"
-#app_include_js = "/assets/weatherapp/js/global_weather_bar.js"
-app_include_js = "/assets/weatherapp/public/js/weather_widget.js"
 
-app_include_css = "/assets/weatherapp/public/css/weather_widget.css"
-after_install = "weatherapp.install.after_install"
+#after_install = "weatherapp.install.after_install"
 
+app_include_js  = "/assets/weatherapp/js/weather_widget.js"
+app_include_css = "/assets/weatherapp/css/weather_widget.css"
+
+# Include JS & CSS في صفحات الموقع (الـ Website)
+web_include_js  = ["/assets/weatherapp/js/weatherapp.bundle.js"]
+web_include_css = ["/assets/weatherapp/css/weatherapp.bundle.css"]
+
+# تحديث دوري كل 5 دقائق
 scheduler_events = {
     "cron": {
-        "*/5 * * * *": ["weatherapp.tasks.sync_weather"]
+        "*/5 * * * *": [
+            "weatherapp.tasks.update_default_city_weather"
+        ]
     }
 }
 
+doc_events = {}
 #after_install = "weatherapp.install.after_install"
 
 # required_apps = []

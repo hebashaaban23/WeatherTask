@@ -2,56 +2,32 @@ import frappe, requests
 from frappe.utils import now_datetime
 from frappe import _
 
-OPENWEATHER_URL = "https://api.openweathermap.org/data/2.5/weather"
+OWM_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 def _get_settings():
-    settings = frappe.get_single("Weather Settings")
-    if not settings.api_key:
-        frappe.throw(_("Please set the API Key in Weather Settings."))
-    city = (settings.default_city or "Riyadh").strip()
-    return settings.api_key, city
+    return frappe.get_single("Weather Settings")
 
-def _fetch_weather(api_key, city):
-    res = requests.get(OPENWEATHER_URL,
-        params={"q": city, "appid": api_key, "units": "metric"},
-        timeout=10)
-    if res.status_code == 401:
-        frappe.throw(_("Invalid API Key for OpenWeatherMap."))
-    res.raise_for_status()
-    data = res.json()
-    return {
-        "city": city,
-        "temperature": float(data["main"]["temp"]),
-        "humidity": float(data["main"]["humidity"]),
-    }
-
-def _upsert_weather(doc_dict):
-    name = frappe.db.get_value("Weather", {"city": doc_dict["city"]}, "name")
-    now_dt = now_datetime()
-    if name:
-        doc = frappe.get_doc("Weather", name)
-        changed = False
-        if doc.temperature != doc_dict["temperature"]:
-            doc.temperature = doc_dict["temperature"]; changed = True
-        if doc.humidity != doc_dict["humidity"]:
-            doc.humidity = doc_dict["humidity"]; changed = True
-        if changed:
-            doc.last_updated_on = now_dt
-            doc.save(ignore_permissions=True)
-        return doc.name, changed
-    else:
-        doc = frappe.get_doc({
-            "doctype": "Weather",
-            "city": doc_dict["city"],
-            "temperature": doc_dict["temperature"],
-            "humidity": doc_dict["humidity"],
-            "last_updated_on": now_dt,
-        }).insert(ignore_permissions=True)
-        return doc.name, True
+def fetch_weather(city, api_key):
+    try:
+        r = requests.get(OWM_URL, params={"q": city, "appid": api_key, "units": "metric"}, timeout=10)
+        if r.status_code == 401:
+            frappe.throw(_("Invalid API key"))
+        r.raise_for_status()
+        data = r.json()
+        temp = data.get("main", {}).get("temp")
+        hum = data.get("main", {}).get("humidity")
+        return {"city": city, "temperature": float(temp), "humidity": float(hum), "fetched_at": now_datetime()}
+    except requests.exceptions.RequestException as e:
+        frappe.throw(_("Network error: {0}").format(str(e)))
 
 @frappe.whitelist()
 def get_current_weather():
-    api_key, city = _get_settings()
-    data = _fetch_weather(api_key, city)
-    _upsert_weather(data)
-    return data
+    settings = _get_settings()
+    city = (settings.city or "Riyadh").strip()
+    doc = frappe.get_doc("Weather", city) if frappe.db.exists("Weather", city) else frappe.get_doc({"doctype":"Weather","city":city}).insert(ignore_permissions=True)
+    try:
+        reading = fetch_weather(city, settings.api_key)
+        doc.update_reading(reading["temperature"], reading["humidity"])
+        return {"ok": True, "city": city, "temperature": reading["temperature"], "humidity": reading["humidity"], "last_updated_on": str(doc.last_updated_on)}
+    except Exception as e:
+        return {"ok": False, "city": doc.city, "temperature": doc.temperature, "humidity": doc.humidity, "last_updated_on": str(doc.last_updated_on) if doc.last_updated_on else None, "error": str(e)}
