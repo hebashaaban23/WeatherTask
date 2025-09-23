@@ -1,11 +1,8 @@
-// weatherapp/public/js/weather_bottom_bar.js
 (() => {
   const ID = "weather-bottom-bar";
 
-  // اختر ثيم: 'midnight' | 'emerald' | 'sand' | 'sky' | 'rose' | 'violet' | 'custom'
-  const THEME = "emerald";
+  const THEME = "sky";
 
-  // لو عايز ألوانك الخاصة، غيّر قيم custom تحت وخلي THEME = 'custom'
   const THEMES = {
     midnight: { bg: "#0b1220cc", border: "#1f2a44", text: "#e5e7eb", subtext:"#cbd5e1", accent: "#60a5fa" },
     emerald:  { bg: "#052e25cc", border: "#0d4a3a", text: "#ecfdf5", subtext:"#a7f3d0", accent: "#34d399" },
